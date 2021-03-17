@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="static/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!-- Other CSS -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
 
     <title>Pop It</title>
   </head>
@@ -17,7 +18,7 @@
   <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark" id='navigation'>
 	<div class="container-fluid" >
-	  <a class="navbar-brand" href="#">PopIt</a>
+	  <a class="navbar-brand" href="#">Filmsy</a>
 	  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	  </button>
@@ -37,7 +38,7 @@
 	</div>
   </nav>
   <body>
-
+    Hello {{name}}
     <!-- Image gallery -->
 <section id='image_gallery'>
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -49,7 +50,7 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="bg-overlay"> 
-            <img src="resources/joker_poster.jpg" class="d-block w-100" alt="..."  >
+            <img src="static/resources/joker_poster.jpg" class="d-block w-100" alt="..."  >
             <div class="carousel-caption d-none d-md-block" id='joker'>
               <h1 id='joker-title'> JOKER </h1>
               <p id='joker-tagline'> PUT ON A HAPPY FACE </p>
@@ -60,7 +61,7 @@
 
         <div class="carousel-item">
           <div class="bg-overlay"> 
-            <img src="resources/br_poster.jpg" class="d-block w-100" alt="..."  >
+            <img src="static/resources/br_poster.jpg" class="d-block w-100" alt="..."  >
             <div class="carousel-caption d-none d-md-block" id='br'>
               <h1 id='br-title'> BOHEMIAN RHAPSODY </h1>
               <p id='br-tagline'> FEARLESS LIVES FOREVER </p>
@@ -70,7 +71,7 @@
         </div>
         <div class="carousel-item">
           <div class="bg-overlay"> 
-            <img src="resources/avenger_poster.jpg" class="d-block w-100" alt="..."  >
+            <img src="static/resources/avenger_poster.jpg" class="d-block w-100" alt="..."  >
             <div class="carousel-caption d-none d-md-block" id='avengers'>
               <h1 id='avengers-title'> END GAME</h1>
               <p id='avengers-tagline'> AVENGE THE FALLEN </p>
@@ -90,46 +91,40 @@
 
       <div class="col-md-4 single_card">
         <div class="card" style="width: 18rem;">
-          <img src="resources/endgame_rect.jpg" class="card-img-top" alt="...">
+          <img src="static/resources/endgame_rect.jpg" class="card-img-top" alt="...">
         </div>
       </div>
 
       <div class="col-md-4 single_card">
         <div class="card" style="width: 18rem;">
-          <img src="resources/br_rect.jpg" class="card-img-top" alt="...">
+          <img src="static/resources/br_rect.jpg" class="card-img-top" alt="...">
         </div>
       </div>
 
 
       <div class="col-md-4 single_card">
         <div class="card" style="width: 18rem;">
-          <img src="resources/1917_rect.jpg" class="card-img-top" alt="...">
+          <img src="static/resources/1917_rect.jpg" class="card-img-top" alt="...">
         </div>
       </div>
     
       <div class="col-md-4 single_card">
         <div class="card" style="width: 18rem;">
-          <img src="resources/jojo_rect.jpg" class="card-img-top" alt="...">
+          <img src="static/resources/jojo_rect.jpg" class="card-img-top" alt="...">
         </div>
       </div>
 
       <div class="col-md-4 single_card">
         <div class="card" style="width: 18rem;">
-          <img src="resources/joker_rect.jpg" class="card-img-top" alt="...">
+          <img src="static/resources/joker_rect.jpg" class="card-img-top" alt="...">
         </div>
       </div>
 
       <div class="col-md-4 single_card">
         <div class="card" style="width: 18rem;">
-          <img src="resources/fvf_rect.jpg" class="card-img-top" alt="...">
+          <img src="static/resources/fvf_rect.jpg" class="card-img-top" alt="...">
         </div>
       </div>
-      
-     
-      
-      
-      
-      
       
     </div> 
   </div>
