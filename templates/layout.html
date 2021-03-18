@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="static/css/bootstrap.css" rel="stylesheet">
 
     <!-- Other CSS -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
 
-    <title>Pop It</title>
-  </head>
+    {% block title %}<title>Pop It</title>{% endblock %} 
+ </head>
 
   <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark" id='navigation'>
@@ -36,5 +36,13 @@
 	  </div>
 	</div>
   </nav>
-  <body>  
+  <body>
+	  {%block body %} 
+	  {% endblock body %} 
+	  <style>
+		  body{
+			  color:white;
+			  background-color:black;
+		  }
+	  </style>
   </body>
