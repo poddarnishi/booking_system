@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,url_for,redirect
 app=Flask(__name__)
 
 @app.route("/")
@@ -10,5 +10,9 @@ def index():
 @app.route("/book")
 def book():
     return render_template("book.html")
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
 
 
