@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block title %}
+<title>Profile</title>
+{% endblock%}
+{% block body %}
+<h1>Profile Page</h1>
+
+<div>
+    <p>Your account details are below:</p>
+    <table>
+        <tr>
+            <td>Username:</td>
+            <td>{{ account['username'] }}</td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>{{ account['password'] }}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{ account['email'] }}</td>
+        </tr>
+    </table>
+</div>
+<p>
+    
+<h2>Your past purchases are: </h2>
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Movie name</th>
+            <th scope="col">Genre</th>
+            <th scope="col">No. of seats booked</th>
+            <th scope="col">Date</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Your rows inside the table HERE: -->
+            <tr>
+                <td>Valure for Movie</td>
+                <td>Valure for Genre</td>
+                <td>Valure for seats booked</td>
+                <td>Valure for Date</td>
+            </tr>
+    </tbody>
+</table>
+</p>
+{% endblock body%}

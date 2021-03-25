@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block title %}
+<title>Login</title>
+{% endblock%}
+
+{% block body %}
+<!-- Login form start -->
+<h1 id="log-title"> Get an account</h1>
+<section id='login-page'>  
+	<div class="logged" id="logged">
+		<div class="form-container sign-up-container">
+			<form action="#" class="login-form">
+				<h1 class="login-title">Create Account</h1>
+				<input type="text" placeholder="Name" />
+				<input type="number" placeholder="Age" />
+				<input type="number" placeholder="Phone" />
+				<input type="email" placeholder="Email" />
+				<input type="password" placeholder="Password" />
+				<button class="login-button">Sign Up</button>
+			</form>
+		</div>
+		<div class="form-container sign-in-container">
+			<form action="#" class="login-form">
+				<h1 class="login-title">Sign in</h1>
+				<input type="email" placeholder="Email" />
+				<input type="password" placeholder="Password" />
+				<button class="login-button">Sign In</button>
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1 class="login-title">Welcome Back!</h1>
+					<p class="login-instruction">To book a ticket please Log-in to your account</p>
+					<button class="ghost login-button" id="signIn">Sign In</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1 class="login-title">Hello, Friend!</h1>
+					<p class="login-instruction">To not miss out on your favourite movie book fast!</p>
+					<button class="ghost login-button" id="signUp">Sign Up</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section class='login-page'>
+	
+	<script>
+	const signUpButton = document.getElementById('signUp');
+	const signInButton = document.getElementById('signIn');
+	const container = document.getElementById('logged');
+	
+	signUpButton.addEventListener('click', () => {
+		container.classList.add("right-panel-active");
+	});
+	
+	signInButton.addEventListener('click', () => {
+		container.classList.remove("right-panel-active");
+	});
+	</script>
+
+
+{% endblock body%}
