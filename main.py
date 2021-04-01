@@ -16,7 +16,7 @@ def profile():
 def book():
     return render_template("book.html")
 
-@app.route("/login")
+@app.route("/login",methods=['POST','GET'])
 def login():
     return render_template("login.html")
 
