@@ -9,21 +9,23 @@
 <section id='login-page'>  
 	<div class="logged" id="logged">
 		<div class="form-container sign-up-container">
-			<form action="#" class="login-form">
-				<h1 class="login-title">Create Account</h1>
-				<input type="text" placeholder="Name" />
-				<input type="number" placeholder="Age" />
-				<input type="number" placeholder="Phone" />
-				<input type="email" placeholder="Email" />
-				<input type="password" placeholder="Password" />
+			<form action="{{ url_for('register') }}" method="post" class="login-form">
+				<h1 class="login-title" style="color:darkblue">Create Account</h1>
+				<input type="text" name="name" placeholder="Name" required />
+				<input type="number" name="age" placeholder="Age" required/>
+				<input type="number" name="phone" placeholder="Phone" required/>
+				<input type="email" name="email" placeholder="Email" required />
+				<input type="password" name="password" placeholder="Password" required/>
+				<div class="msg" style="color:darkblue">{{ msg }}</div>
 				<button class="login-button">Sign Up</button>
 			</form>
 		</div>
 		<div class="form-container sign-in-container">
-			<form action="#" class="login-form">
-				<h1 class="login-title">Sign in</h1>
-				<input type="email" placeholder="Email" />
-				<input type="password" placeholder="Password" />
+			<form action="{{ url_for('login') }}" method='POST' class="login-form">
+				<h1 class="login-title" style="color:darkblue">Sign in</h1>
+				<input type="email" name="email" placeholder="Email"/>
+				<input type="password" name="password" placeholder="Password" />
+				<div class="msg" style="color:darkblue">{{ msg }}</div>
 				<button class="login-button">Sign In</button>
 			</form>
 		</div>
@@ -42,7 +44,9 @@
 			</div>
 		</div>
 	</div>
+
 	</section class='login-page'>
+
 	
 	<script>
 	const signUpButton = document.getElementById('signUp');

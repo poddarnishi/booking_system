@@ -508,7 +508,9 @@ figure {
 .logged.right-panel-active .overlay-right {
 	transform: translateX(20%);
 }
-
+.msg{
+  color:#0C0032;
+}
 
 
 

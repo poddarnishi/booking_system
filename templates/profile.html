@@ -3,24 +3,23 @@
 <title>Profile</title>
 {% endblock%}
 {% block body %}
-<h1>Profile Page</h1>
+<h1>Hello! {{ account['name'] }}</h1>
 
 <div>
     <p>Your account details are below:</p>
     <table>
         <tr>
-            <td>Username:</td>
+            <td>Email:</td>
             <td>{{ account['username'] }}</td>
         </tr>
         <tr>
-            <td>Password:</td>
-            <td>{{ account['password'] }}</td>
-        </tr>
-        <tr>
-            <td>Email:</td>
-            <td>{{ account['email'] }}</td>
+            <td>Phone no:</td>
+            <td>{{ account['phone'] }}</td>
         </tr>
     </table>
+    <form action="{{ url_for('logout') }}" method='POST'>
+        <button class="btn btn-primary btn-sm">Log out</button>
+    </form>
 </div>
 <p>
     
@@ -37,7 +36,11 @@
     </thead>
     <tbody>
         <!-- Your rows inside the table HERE: -->
-            <tr>
+        {% if record %}
+        {% for i in len(record) %}
+
+        <tr>
+            {% for j in range(4) %}
                 <td>Valure for Movie</td>
                 <td>Valure for Genre</td>
                 <td>Valure for seats booked</td>
