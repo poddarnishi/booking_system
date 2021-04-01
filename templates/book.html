@@ -1,6 +1,180 @@
 {% extends "layout.html" %}
 {% block title %}
-<title>Book</title>
+<title>Booking</title>
 {% endblock %}
 {% block body %}
+     <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark" id='navigation'>
+	<div class="container-fluid" >
+	  <a class="navbar-brand" href="#">PopIt</a>
+	  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav ms-auto active">
+		  <li class="nav-item">
+			<a class="nav-link active" aria-current="page" href="index.html">Home</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="common/booking.html">Book</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="common/login.html">Log in</a>
+		  </li>
+		</ul>
+	  </div>
+	</div>
+</nav>
+  <body>
+<section id='booking-section'>
+    <h1 class="heading-title">Book a ticket</h1>
+    <div id='main-section'>
+        <div id="movie-desc">
+          <img src="../resources/br_rect.jpg" style="width:300px; height: 400px;" id='img-poster'>
+          <div id="movie-desc-inner">
+            <h2>Bohemian Rhapsody</h2>
+            <p id='description'> Lorem ipsum dolor, sit amet consectetur
+            adipisicing elit. Doloremque est dolore nam laboriosam distinctio,
+            non laborum, iusto praesentium, commodi deleniti optio explicabo at
+            facilis unde quos ea vel animi obcaecati. </p>
+            <p> <i class="lab la-imdb la-5x" style="color: #DBA506;"> 
+              <span style="color: white; font-size: 0.7em;"> 7.2 </span> </i> 
+            </p> 
+            <p id='movie-time'> <span style="border-right: solid white 1px;
+            padding-right: 5px; margin-right: 5px;">  120 mins </span>
+            Biogrpahical </p>
+
+          </div>
+        </div>
+        <div class="hr"> </div>
+        <div id='date'>
+           <div class="day" onclick=selected(this)> 
+               <p class="day-text"> SEP </p>
+               <h1 class="day-number"> 23 </h1>
+               <p class="day-text"> SAT </p>
+            </div>
+           <div class="day" onclick=selected(this)> 
+               <p class="day-text"> SEP </p>
+               <h1 class="day-number"> 24 </h1>
+               <p class="day-text"> SAT </p>
+            </div>
+           <div class="day" onclick=selected(this)> 
+               <p class="day-text"> SEP </p>
+               <h1 class="day-number"> 25 </h1>
+               <p class="day-text"> SAT </p>
+            </div>
+           <div class="day" onclick=selected(this)> 
+               <p class="day-text" > SEP </p>
+               <h1 class="day-number"> 26 </h1>
+               <p class="day-text"> SAT </p>
+            </div>
+           <div class="day" onclick=selected(this)> 
+               <p class="day-text" > SEP </p>
+               <h1 class="day-number"> 27 </h1>
+               <p class="day-text"> SAT </p>
+            </div>
+           <div class="day" onclick=selected(this)> 
+               <p class="day-text" > SEP </p>
+               <h1 class="day-number"> 28 </h1>
+               <p class="day-text"> SAT </p>
+            </div>
+           <div class="day" onclick=selected(this)> 
+               <p class="day-text" > SEP </p>
+               <h1 class="day-number"> 29 </h1>
+               <p class="day-text"> SAT </p>
+            </div>
+           <div class="day" onclick=selected(this)> 
+               <p class="day-text" > SEP </p>
+               <h1 class="day-number"> 30 </h1>
+               <p class="day-text"> SAT </p>
+            </div>
+           <div class="day" onclick=selected(this)> 
+               <p class="day-text" > NOV </p>
+               <h1 class="day-number"> 1 </h1>
+               <p class="day-text"> SAT </p>
+            </div>
+           <div class="day" onclick=selected(this)> 
+               <p class="day-text" > NOV </p>
+               <h1 class="day-number"> 2 </h1>
+               <p class="day-text"> SAT </p>
+            </div>
+           <div class="day" onclick=selected(this)> 
+               <p class="day-text" > NOV </p>
+               <h1 class="day-number"> 3 </h1>
+               <p class="day-text"> SAT </p>
+            </div>
+           <div class="day" onclick=selected(this)> 
+               <p class="day-text"> NOV </p>
+               <h1 class="day-number"> 4 </h1>
+               <p class="day-text"> SAT </p>
+            </div>
+           <div class="day" onclick=selected(this)> 
+               <p class="day-text" > NOV </p>
+               <h1 class="day-number"> 5 </h1>
+               <p class="day-text"> SAT </p>
+            </div> 
+        </div>
+        <div class="hr"> </div>
+        <div id="ticket">
+          <form action="#">
+            <select name="ticket-type" id='ticket-type' placeholder='Seat type'>
+              <option value="" disabled selected>Seat Type </option>
+              <option value="premium">Premium(₹300)</option>
+              <option value="gold">Gold(₹200)</option>
+              <option value="regular">Regular(₹100)</option>
+            </select>
+          </form>
+          <div id="people">
+            <h2 id='many'> How many?</h2>
+              <div id="svg-icons">
+                    <img src='../resources/bicycle.svg' style="width: 150px;" id='change_img'> </img>
+                    <br>
+                      <button onclick="document.getElementById('change_img').src='../static/resources/bicycle.svg'; selected_btn(this)"  id="change1" class="btn-change"> 1 </button>
+                      <button onclick="document.getElementById('change_img').src='../static/resources/bike.svg';selected_btn(this)"  id="change1" class="btn-change"> 2 </button>
+                      <button onclick="document.getElementById('change_img').src='../static/resources/rickshaw.svg';selected_btn(this)"  id="change1" class="btn-change"> 3 </button>
+                      <button onclick="document.getElementById('change_img').src='../static/resources/car.svg';selected_btn(this)"  id="change1" class="btn-change"> 4 </button>
+                      <button onclick="document.getElementById('change_img').src='../static/resources/jeep.svg';selected_btn(this)"  id="change1" class="btn-change"> 5 </button>
+                      <button onclick="document.getElementById('change_img').src='../static/resources/bus.svg';selected_btn(this)"  id="change1" class="btn-change"> 6 </button>
+                </div>
+          </div>
+          <div id='payment-btn'>
+            <button type="button" id='pay' > Pay Now </button>
+          </div>
+        </div>
+      
+    </div>
+</section>
+<script>
+    var divItems = document.getElementsByClassName("day");
+    var btnChanges= document.getElementsByClassName('btn-change');
+
+    function selected(item) {
+        this.clear();
+        item.style.backgroundColor = 'black';
+    }
+    
+    function clear() {
+        for(var i=0; i < divItems.length; i++) {
+            var item = divItems[i];
+            item.style.backgroundColor = 'var(--main--violet_200)';
+        }
+    }
+
+    function selected_btn(item) {
+        this.clear_btn();
+        item.style.backgroundColor = 'var(--main--violet_100)';
+    }
+
+    function clear_btn() {
+        for(var i=0; i < btnChanges.length; i++) {
+            var item = btnChanges[i];
+            item.style.backgroundColor = 'var(--main--violet_200)';
+        }
+    }
+
+    </script>
+
+    <!-- Bootstrap script -->
+    <script src="../js/bootstrap.bundle.js"> </script>
+
 {% endblock %}

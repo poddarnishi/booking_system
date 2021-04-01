@@ -37,9 +37,9 @@ def profile():
 
 @app.route("/book",methods=['GET','POST'])
 def book():
-
     mini_project.genre_recommendations('1917')
     return render_template("book.html")
+    
 @app.route("/login",methods=['GET','POST'])
 def login():
     msg=''
