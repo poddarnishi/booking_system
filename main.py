@@ -22,9 +22,16 @@ def index():
 @app.route("/profile")
 def profile():
     if 'loggedin' in session:
-        cursor.execute("Select * from records where email_id= %s",(session['username'],))
+        cursor.execute("Select * from record where email_id= %s",(session['username'],))
         record=cursor.fetchall()
-        return render_template("profile.html",account=session,record=record)
+        movie=[]
+        genre=[]
+        for i in range(len(record)):
+            cursor.execute("Select movie_name from movie_details where movie_id=%s",(record[i],))
+            movie.append(cursor.fetchone())
+            cursor.execute("Select genre from movie_details where movie_id=%s",(record[i],))
+            genre.append(cursor.fetchone())
+        return render_template("profile.html",account=session,record=record,movie=movie,genre=genre)
     else:
         return render_template("login.html")
 

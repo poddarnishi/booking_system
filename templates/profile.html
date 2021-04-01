@@ -4,7 +4,6 @@
 {% endblock%}
 {% block body %}
 <h1>Hello! {{ account['name'] }}</h1>
-
 <div>
     <p>Your account details are below:</p>
     <table>
@@ -40,12 +39,13 @@
         {% for i in len(record) %}
 
         <tr>
-            {% for j in range(4) %}
-                <td>Valure for Movie</td>
-                <td>Valure for Genre</td>
-                <td>Valure for seats booked</td>
-                <td>Valure for Date</td>
+                <td>movie[i]</td>
+                <td>genre[i]</td>
+                <td>record[i][0]</td>
+                <td>record[i][4]</td>
             </tr>
+        {% endfor %}
+        {% endif %}
     </tbody>
 </table>
 </p>
