@@ -4,7 +4,7 @@
 {% endblock %}
 {% block body %}
 <section id='booking-section'>
-    <h1 class="heading-title">Book a ticket</h1>
+    <h1 id="heading-title">Book a ticket</h1>
     <div id='main-section'>
         <div id="movie-desc">
           <img src={{img}} style="width:300px; height: 400px;" id='img-poster'>
@@ -104,12 +104,6 @@
               <div id='tickets-left'>
                 <h4 id='tickets-left-text'>Seats left : <span id='seats'> </span></h4>
               </div>
-            <!-- <select name="ticket-type" id='ticket-type' placeholder='Seat type'>
-              <option value="" disabled selected>Seat Type </option>
-              <option value="premium">Premium(₹300)</option>
-              <option value="gold">Gold(₹200)</option>
-              <option value="regular">Regular(₹100)</option>
-            </select> -->
           
           <div id="people">
             <h2 id='many'> How many?</h2>
@@ -154,10 +148,23 @@
     function clear() {
         for(var i=0; i < divItems.length; i++) {
             var item = divItems[i];
-            item.style.backgroundColor = 'blue';
+            item.style.backgroundColor = 'var(--main--violet_200)';
         }
     }
 
+
+    //function to get which seat selected
+    function changeFunc(value) {
+            if(value=='premium'){
+                    document.getElementById('seats').innerHTML='42'; //seats left
+            }
+            else if(value=='gold'){
+                    document.getElementById('seats').innerHTML='32'; //seats left
+            }
+            else{
+                    document.getElementById('seats').innerHTML='30'; //seats left
+            }
+        }
 
     var btnChanges= document.getElementsByClassName('btn-change');
     function selected_btn(item) {
