@@ -52,8 +52,12 @@ def book():
                 silvertic=cursor.fetchone()
                 print(silvertic[0])
                 id=int(id)
-                return render_template("bookings.html",img=movie_image[id-100],movie=movie,goldtic=int(goldtic[0]),silvertic=int(silvertic[0]))
-    mini_project.genre_recommendations('1917')
+                recommend=mini_project.genre_recommendations(movie[1])
+                print(recommend)
+                return render_template("bookings.html",img=movie_image[id-100],movie=movie,goldtic=int(goldtic[0]),silvertic=int(silvertic[0]),recommend=recommend)
+        else:
+            return render_template("login.html")
+   
     
     
 @app.route("/login",methods=['GET','POST'])

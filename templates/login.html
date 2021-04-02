@@ -12,7 +12,7 @@
 			<form action="{{ url_for('register') }}" method="post" class="login-form">
 				<h1 class="login-title" style="color:darkblue">Create Account</h1>
 				<input type="text" name="name" placeholder="Name" required />
-				<input type="number" name="age" placeholder="Age" required/>
+				<input type="number" name="age" placeholder="Age" min="10" required/>
 				<input type="number" name="phone" placeholder="Phone" required/>
 				<input type="email" name="email" placeholder="Email" required />
 				<input type="password" name="password" placeholder="Password" required/>

@@ -92,7 +92,6 @@ def genre_recommendations(movie_name):
     sim_scores = sorted(sim_scores, key = lambda x: x[1], reverse=True)
     sim_scores = sim_scores[1:6]
     movie_indices = [i[0] for i in sim_scores]
-    s=[]
-    s.append(titles.iloc[movie_indices])
-    print(s)
+    final_rec = titles.iloc[movie_indices].to_list()
+    return final_rec
 
