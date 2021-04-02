@@ -20,83 +20,12 @@
 
           </div>
         </div>
-        
-        <form action="#">
-        <div class="hr"> </div>
-        <div id='date'>
-           <div class="day" onclick=selected(this)> 
-               <p class="day-text"> SEP </p>
-               <h1 class="day-number"> 23 </h1>
-               <p class="day-text"> SAT </p>
-            </div>
-           <div class="day" onclick=selected(this)> 
-               <p class="day-text"> SEP </p>
-               <h1 class="day-number"> 24 </h1>
-               <p class="day-text"> SAT </p>
-            </div>
-           <div class="day" onclick=selected(this)> 
-               <p class="day-text"> SEP </p>
-               <h1 class="day-number"> 25 </h1>
-               <p class="day-text"> SAT </p>
-            </div>
-           <div class="day" onclick=selected(this)> 
-               <p class="day-text" > SEP </p>
-               <h1 class="day-number"> 26 </h1>
-               <p class="day-text"> SAT </p>
-            </div>
-           <div class="day" onclick=selected(this)> 
-               <p class="day-text" > SEP </p>
-               <h1 class="day-number"> 27 </h1>
-               <p class="day-text"> SAT </p>
-            </div>
-           <div class="day" onclick=selected(this)> 
-               <p class="day-text" > SEP </p>
-               <h1 class="day-number"> 28 </h1>
-               <p class="day-text"> SAT </p>
-            </div>
-           <div class="day" onclick=selected(this)> 
-               <p class="day-text" > SEP </p>
-               <h1 class="day-number"> 29 </h1>
-               <p class="day-text"> SAT </p>
-            </div>
-           <div class="day" onclick=selected(this) > 
-               <p class="day-text" > SEP </p>
-               <h1 class="day-number"> 30 </h1>
-               <p class="day-text"> SAT </p>
-            </div>
-
-           <div class="day" onclick=selected(this)> 
-               <p class="day-text" > NOV </p>
-               <h1 class="day-number"> 1 </h1>
-               <p class="day-text"> SAT </p>
-            </div>
-           <div class="day" onclick=selected(this)> 
-               <p class="day-text" > NOV </p>
-               <h1 class="day-number"> 2 </h1>
-               <p class="day-text"> SAT </p>
-            </div>
-           <div class="day" onclick=selected(this)> 
-               <p class="day-text" > NOV </p>
-               <h1 class="day-number"> 3 </h1>
-               <p class="day-text"> SAT </p>
-            </div>
-           <div class="day" onclick=selected(this)> 
-               <p class="day-text"> NOV </p>
-               <h1 class="day-number"> 4 </h1>
-               <p class="day-text"> SAT </p>
-            </div>
-           <div class="day" onclick=selected(this)> 
-               <p class="day-text" > NOV </p>
-               <h1 class="day-number"> 5 </h1>
-               <p class="day-text"> SAT </p>
-            </div> 
-        </div>
+       
         <div class="hr"> </div>
         <div id="ticket">
             <form action="#">
                 <select name="ticket-type" id='ticket-type' placeholder='Seat type' onchange="changeFunc(value)">
                   <option value="" disabled selected>Seat Type </option>
-                  <option value="premium">Premium(₹300)</option>
                   <option value="gold">Gold(₹200)</option>
                   <option value="regular">Regular(₹100)</option>
                 </select>
@@ -112,7 +41,7 @@
                     <br>
                       
   <label for="quantity">Select tickets: </label>
-  <input type="number" id="quantity" name="quantity" min="1" max="5">
+  <input type="number" id="quantitytic" name="quantity" min="1" >
                 </div>
           </div>
           <div id='payment-btn'>
@@ -124,60 +53,20 @@
     </div>
 </section>
 <script>
-
-    // funntion to get date and touch of the calender
-    var divItems = document.getElementsByClassName("day");
-
-    function selected(item) {
-    this.clear();
-    item.style.backgroundColor = 'black'; //sets the bg colour on click
-
-    let month= item.getElementsByClassName('day-text')[0].textContent;
-    let months =['JAN','FEB','MAR','APRIL','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-    for(let i=0;i<months.length;i++){
-        if(month == months[i]){
-            month=i+1;
-        }
-    }
-    let day= item.getElementsByClassName('day-number')[0].textContent;
-
-    // final date
-    date='2020'+'-'+month+'-'+day;
-    }
-    //sets the bg colour of unclicked-elements
-    function clear() {
-        for(var i=0; i < divItems.length; i++) {
-            var item = divItems[i];
-            item.style.backgroundColor = 'var(--main--violet_200)';
-        }
-    }
-
-
     //function to get which seat selected
     function changeFunc(value) {
-            if(value=='premium'){
-                    document.getElementById('seats').innerHTML='42'; //seats left
-            }
-            else if(value=='gold'){
-                    document.getElementById('seats').innerHTML='32'; //seats left
+            if(value=='gold'){
+                    document.getElementById('seats').innerHTML={{ goldtic }}; //seats left
+                    gold={{goldtic}}
+                    document.getElementById('quantitytic').setAttribute('max',gold);
             }
             else{
-                    document.getElementById('seats').innerHTML='30'; //seats left
+                    document.getElementById('seats').innerHTML={{ silvertic }}; //seats left
+                    silver={{silvertic}}
+                    document.getElementById('quantitytic').setAttribute('max',silver);
             }
         }
 
-    var btnChanges= document.getElementsByClassName('btn-change');
-    function selected_btn(item) {
-        this.clear_btn();
-        item.style.backgroundColor = 'var(--main--violet_100)';
-    }
-
-    function clear_btn() {
-        for(var i=0; i < btnChanges.length; i++) {
-            var item = btnChanges[i];
-            item.style.backgroundColor = 'var(--main--violet_200)';
-        }
-    }
 
     </script>
 <!-- <script>

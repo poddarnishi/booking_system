@@ -45,10 +45,84 @@
         </div>
   </div>
   </section>
-  
-  <!-- Top movies section -->
+   
+  <!-- <form action="#"> -->
+    
   <form action="{{ url_for('book') }}" method="POST">
+    <div class="hr"> </div>
+    <div id='date'>
+       <div class="day" onclick=selected(this)> 
+           <p class="day-text">APR</p>
+           <h1 class="day-number">7 </h1>
+           <p class="day-text"> SAT </p>
+        </div>
+       <div class="day" onclick=selected(this)> 
+           <p class="day-text">APR</p>
+           <h1 class="day-number">8 </h1>
+           <p class="day-text"> SAT </p>
+        </div>
+       <div class="day" onclick=selected(this)> 
+           <p class="day-text">APR</p>
+           <h1 class="day-number">9 </h1>
+           <p class="day-text"> SAT </p>
+        </div>
+       <div class="day" onclick=selected(this)> 
+           <p class="day-text" >APR</p>
+           <h1 class="day-number">10 </h1>
+           <p class="day-text"> SAT </p>
+        </div>
+       <div class="day" onclick=selected(this)> 
+           <p class="day-text" >APR</p>
+           <h1 class="day-number">11 </h1>
+           <p class="day-text"> SAT </p>
+        </div>
+       <div class="day" onclick=selected(this)> 
+           <p class="day-text" >APR</p>
+           <h1 class="day-number">12 </h1>
+           <p class="day-text"> SAT </p>
+        </div>
+       <div class="day" onclick=selected(this)> 
+           <p class="day-text" >APR</p>
+           <h1 class="day-number">13 </h1>
+           <p class="day-text"> SAT </p>
+        </div>
+       <div class="day" onclick=selected(this) > 
+           <p class="day-text" >APR</p>
+           <h1 class="day-number">14 </h1>
+           <p class="day-text"> SAT </p>
+        </div>
+
+       <div class="day" onclick=selected(this)> 
+           <p class="day-text" >APR</p>
+           <h1 class="day-number">15 </h1>
+           <p class="day-text"> SAT </p>
+        </div>
+       <div class="day" onclick=selected(this)> 
+           <p class="day-text" >APR</p>
+           <h1 class="day-number">16</h1>
+           <p class="day-text"> SAT </p>
+        </div>
+       <div class="day" onclick=selected(this)> 
+           <p class="day-text" >APR</p>
+           <h1 class="day-number">17 </h1>
+           <p class="day-text"> SAT </p>
+        </div>
+       <div class="day" onclick=selected(this)> 
+           <p class="day-text">APR</p>
+           <h1 class="day-number">18 </h1>
+           <p class="day-text"> SAT </p>
+        </div>
+       <div class="day" onclick=selected(this)> 
+           <p class="day-text" >APR</p>
+           <h1 class="day-number">19 </h1>
+           <p class="day-text"> SAT </p>
+        </div> 
+    </div>
+  
+
+  <!-- Top movies section -->
     <input type="hidden" name="movie" value="selected">
+    <input type="hidden" id="datejs" name="date">
   <section id="top_movies">
     <h1> Top Movies </h1>
     <div id="movies_card">
@@ -102,8 +176,48 @@
     </div>
   </section>
 </form>
-    
-  
+
+<script>
+  var divItems = document.getElementsByClassName("day");
+
+function selected(item) {
+this.clear();
+item.style.backgroundColor = 'black'; //sets the bg colour on click
+
+let month= item.getElementsByClassName('day-text')[0].textContent;
+let months =['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+for(let i=0;i<months.length;i++){
+ if(month == months[i]){
+     month=i+1;
+ }
+}
+let day= item.getElementsByClassName('day-number')[0].textContent;
+// final date
+date='2021'+'-'+month+'-'+day;
+console.log(date);
+document.getElementById("datejs").setAttribute('value',date);
+}
+//sets the bg colour of unclicked-elements
+function clear() {
+ for(var i=0; i < divItems.length; i++) {
+     var item = divItems[i];
+     item.style.backgroundColor = 'var(--main--violet_200)';
+ }
+}
+
+var btnChanges= document.getElementsByClassName('btn-change');
+ function selected_btn(item) {
+     this.clear_btn();
+     item.style.backgroundColor = 'var(--main--violet_100)';
+ }
+
+ function clear_btn() {
+     for(var i=0; i < btnChanges.length; i++) {
+         var item = btnChanges[i];
+         item.style.backgroundColor = 'var(--main--violet_200)';
+     }
+ }
+</script>   
   
   
   

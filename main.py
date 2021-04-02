@@ -7,7 +7,7 @@ app=Flask(__name__)
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
-  password="Br@keys20",  #change the password to 'nineten910' before commits
+  password="nineten910",  #change the password to 'nineten910' before commits
   database="BOOKING"
 )
 cursor = mydb.cursor()
@@ -42,10 +42,17 @@ def book():
         if 'loggedin' in session:
             if request.form["movie"] == "selected":
                 id=request.form["bt"]
+                date=request.form["date"]
                 cursor.execute("Select * from movie_details where movie_id=%s",(id,))
                 movie=cursor.fetchone()
+                print(date)
+                cursor.execute("Select tickets_remaining from booking where show_date=%s and movie_id=%s and seat_type='Gold'",(date,id))
+                goldtic=cursor.fetchone()
+                cursor.execute("Select tickets_remaining from booking where show_date=%s and movie_id=%s and seat_type='Silver'",(date,id))
+                silvertic=cursor.fetchone()
+                print(silvertic[0])
                 id=int(id)
-                return render_template("bookings.html",img=movie_image[id-100],movie=movie)
+                return render_template("bookings.html",img=movie_image[id-100],movie=movie,goldtic=int(goldtic[0]),silvertic=int(silvertic[0]))
     mini_project.genre_recommendations('1917')
     
     
