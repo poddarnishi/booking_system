@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-
 :root{
     --main--violet_50: #0C0032;
     --main--violet_100: #190061;
@@ -10,25 +9,20 @@
     --main--violet_200: #3500D3;
     --main--black: #1a1515;
 }
-
 body{
   background-color: var(--main--black);
 }
-
 #navigation {
   background-color: black;
   font-family: 'Raleway', sans-serif;
   font-weight: bold;
   font-size: 1.3em;
 }
-
 #navbarNav{
  margin-right: 30px;
-
 }
 #navbarNav .nav-item{
   padding-right: 20px;
-
 }
 nav .navbar-nav li a:hover{
     color: white !important;
@@ -300,7 +294,7 @@ figure {
 
 /* Login page css */
 
-#log-title{
+#heading-title{
   color: #FFFFFF;
   text-align: center;
   font-size: 5em;
@@ -513,6 +507,10 @@ figure {
 }
 
 /* Booking page css */
+.date-btn{
+  background-color:var(--main--violet_200);
+}
+
 #main-section{
   background-color: var(--main--violet_200);
   width: 80vw;
@@ -567,6 +565,7 @@ figure {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  color:black;
 }
 
 #date .day{
@@ -580,7 +579,7 @@ figure {
   align-items: center;
   /* border-right: 2px solid white; */
   font-weight:bold;
-  color: white;
+  color: black;
  
 }
 
@@ -590,7 +589,7 @@ figure {
 }
 
 #date .day:hover{
-  background-color: var(--main--black);
+  background-color: yellow;
   cursor: pointer;
 }
 

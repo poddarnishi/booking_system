@@ -47,6 +47,8 @@
   </section>
   
   <!-- Top movies section -->
+  <form action="{{ url_for('book') }}" method="POST">
+    <input type="hidden" name="movie" value="selected">
   <section id="top_movies">
     <h1> Top Movies </h1>
     <div id="movies_card">
@@ -54,44 +56,52 @@
   
         <div class="col-md-4 single_card">
           <div class="card" style="width: 18rem;">
-            <img src="static/resources/endgame_rect.jpg" class="card-img-top" alt="...">
+            <button type="submit" name="bt" value=100>
+
+            <img src="static/resources/endgame_rect.jpg" class="card-img-top" alt="..."></button>
           </div>
         </div>
   
         <div class="col-md-4 single_card">
           <div class="card" style="width: 18rem;">
-            <img src="static/resources/br_rect.jpg" class="card-img-top" alt="...">
+            <button type="submit" name="bt" value=101>
+            <img src="static/resources/br_rect.jpg" class="card-img-top" alt="..."></button>
           </div>
         </div>
   
   
         <div class="col-md-4 single_card">
           <div class="card" style="width: 18rem;">
-            <img src="static/resources/1917_rect.jpg" class="card-img-top" alt="...">
+            <button type="submit" name="bt" value=102>
+            <img src="static/resources/1917_rect.jpg" class="card-img-top" alt="..."></button>
           </div>
         </div>
       
         <div class="col-md-4 single_card">
           <div class="card" style="width: 18rem;">
-            <img src="static/resources/jojo_rect.jpg" class="card-img-top" alt="...">
+            <button type="submit" name="bt" value=103>
+            <img src="static/resources/jojo_rect.jpg" class="card-img-top" alt="..."></button>
           </div>
         </div>
   
         <div class="col-md-4 single_card">
           <div class="card" style="width: 18rem;">
-            <img src="static/resources/joker_rect.jpg" class="card-img-top" alt="...">
+            <button type="submit" name="bt" value=104>
+            <img src="static/resources/joker_rect.jpg" class="card-img-top" alt="..."></button>
           </div>
         </div>
   
         <div class="col-md-4 single_card">
           <div class="card" style="width: 18rem;">
-            <img src="static/resources/fvf_rect.jpg" class="card-img-top" alt="...">
+            <button type="submit" name="bt" value=105>
+            <img src="static/resources/fvf_rect.jpg" class="card-img-top" alt="..."></button>
           </div>
         </div>
         
       </div> 
     </div>
   </section>
+</form>
     
   
   

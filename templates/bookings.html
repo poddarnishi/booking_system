@@ -3,27 +3,25 @@
 <title>Booking</title>
 {% endblock %}
 {% block body %}
-<p class="ugh">HELLLLLLOOOOOO</p>
 <section id='booking-section'>
     <h1 class="heading-title">Book a ticket</h1>
     <div id='main-section'>
         <div id="movie-desc">
-          <img src="static/resources/br_rect.jpg" style="width:300px; height: 400px;" id='img-poster'>
+          <img src={{img}} style="width:300px; height: 400px;" id='img-poster'>
           <div id="movie-desc-inner">
-            <h2>Bohemian Rhapsody</h2>
-            <p id='description'> Lorem ipsum dolor, sit amet consectetur
-            adipisicing elit. Doloremque est dolore nam laboriosam distinctio,
-            non laborum, iusto praesentium, commodi deleniti optio explicabo at
-            facilis unde quos ea vel animi obcaecati. </p>
+            <h2>{{movie[1]}}</h2>
+            <p id='description'>{{movie[6]}} </p>
             <p> <i class="lab la-imdb la-5x" style="color: #DBA506;"> 
-              <span style="color: white; font-size: 0.7em;"> 7.2 </span> </i> 
+              <span style="color: white; font-size: 0.7em;"> {{movie[3]}} /5 </span> </i> 
             </p> 
             <p id='movie-time'> <span style="border-right: solid white 1px;
-            padding-right: 5px; margin-right: 5px;">  120 mins </span>
-            Biogrpahical </p>
+            padding-right: 5px; margin-right: 5px;"> {{movie[5]}} mins </span>
+            {{movie[2]}}</p>
 
           </div>
         </div>
+        
+        <form action="#">
         <div class="hr"> </div>
         <div id='date'>
            <div class="day" onclick=selected(this)> 
@@ -61,7 +59,7 @@
                <h1 class="day-number"> 29 </h1>
                <p class="day-text"> SAT </p>
             </div>
-           <div class="day" onclick=selected(this)> 
+           <div class="day" onclick=selected(this) > 
                <p class="day-text" > SEP </p>
                <h1 class="day-number"> 30 </h1>
                <p class="day-text"> SAT </p>
@@ -94,7 +92,6 @@
         </div>
         <div class="hr"> </div>
         <div id="ticket">
-          <form action="#">
             <select name="ticket-type" id='ticket-type' placeholder='Seat type'>
               <option value="" disabled selected>Seat Type </option>
               <option value="premium">Premium(₹300)</option>
@@ -105,18 +102,15 @@
           <div id="people">
             <h2 id='many'> How many?</h2>
               <div id="svg-icons">
-                    <img src='static/resources/bicycle.svg' style="width: 150px;" id='change_img'> </img>
+                    <img src='static/resources/jeep.svg' style="width: 150px;" id='change_img'> </img>
                     <br>
-                      <button onclick="document.getElementById('change_img').src='../static/resources/bicycle.svg'; selected_btn(this)"  id="change1" class="btn-change" type="button"> 1 </button>
-                      <button onclick="document.getElementById('change_img').src='../static/resources/bike.svg';selected_btn(this)"  id="change1" class="btn-change"  type="button"> 2 </button>
-                      <button onclick="document.getElementById('change_img').src='../static/resources/rickshaw.svg';selected_btn(this)"  id="change1" class="btn-change" type="button"> 3 </button>
-                      <button onclick="document.getElementById('change_img').src='../static/resources/car.svg';selected_btn(this)"  id="change1" class="btn-change" type="button"> 4 </button>
-                      <button onclick="document.getElementById('change_img').src='../static/resources/jeep.svg';selected_btn(this)"  id="change1" class="btn-change" type="button"> 5 </button>
-                      <button onclick="document.getElementById('change_img').src='../static/resources/bus.svg';selected_btn(this)"  id="change1" class="btn-change" type="button"> 6 </button>
+                      
+  <label for="quantity">Select tickets: </label>
+  <input type="number" id="quantity" name="quantity" min="1" max="5">
                 </div>
           </div>
           <div id='payment-btn'>
-            <button type="button" id='pay' > Pay Now </button>
+            <button type="submit" id='pay' > Pay Now </button>
           </div>
         </div>
     </form>
@@ -129,7 +123,7 @@
 
     function selected(item) {
         this.clear();
-        item.style.backgroundColor = 'black';
+        item.style.backgroundColor = 'yellow';
     }
     
     function clear() {

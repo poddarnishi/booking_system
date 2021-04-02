@@ -12,12 +12,12 @@ mydb = mysql.connector.connect(
 )
 cursor = mydb.cursor()
 app.secret_key = 'hello123'
-account={'username':"Nishi","Password":"Hello","email":"nishi@gmail.com"}
+movie_image=["static/resources/endgame_rect.jpg","static/resources/br_rect.jpg","static/resources/1917_rect.jpg","static/resources/jojo_rect.jpg","static/resources/joker_rect.jpg","static/resources/fvf_rect.jpg"]
+
 @app.route("/")
 @app.route("/filmsy")
 @app.route("/home")
 def index():
-
     return render_template("index.html")
 @app.route("/profile")
 def profile():
@@ -37,8 +37,15 @@ def profile():
 
 @app.route("/book",methods=['GET','POST'])
 def book():
+    if request.method=='POST':
+        if request.form["movie"] == "selected":
+            id=request.form["bt"]
+            cursor.execute("Select * from movie_details where movie_id=%s",(id,))
+            movie=cursor.fetchone()
+            id=int(id)
+            return render_template("bookings.html",img=movie_image[id-100],movie=movie)
     mini_project.genre_recommendations('1917')
-    return render_template("book.html")
+    
     
 @app.route("/login",methods=['GET','POST'])
 def login():
