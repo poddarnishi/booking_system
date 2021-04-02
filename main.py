@@ -7,7 +7,7 @@ app=Flask(__name__)
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
-  password="nineten910",
+  password="Br@keys20",  #change the password to 'nineten910' before commits
   database="BOOKING"
 )
 cursor = mydb.cursor()
@@ -19,6 +19,7 @@ movie_image=["static/resources/endgame_rect.jpg","static/resources/br_rect.jpg",
 @app.route("/home")
 def index():
     return render_template("index.html")
+    
 @app.route("/profile")
 def profile():
     if 'loggedin' in session:

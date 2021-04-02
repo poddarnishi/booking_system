@@ -27,81 +27,84 @@
         <div class="hr"> </div>
         <div id='date'>
            <div class="day" onclick=selected(this)> 
-               <p class="day-text"> SEP </p>
-               <h1 class="day-number"> 23 </h1>
-               <p class="day-text"> SAT </p>
+               <p class="day-text">SEP</p>
+               <h1 class="day-number">23</h1>
+               <p class="day-text">SAT</p>
             </div>
            <div class="day" onclick=selected(this)> 
-               <p class="day-text"> SEP </p>
-               <h1 class="day-number"> 24 </h1>
-               <p class="day-text"> SAT </p>
+               <p class="day-text"> SEP</p>
+               <h1 class="day-number">24</h1>
+               <p class="day-text">SAT</p>
             </div>
            <div class="day" onclick=selected(this)> 
-               <p class="day-text"> SEP </p>
-               <h1 class="day-number"> 25 </h1>
-               <p class="day-text"> SAT </p>
+               <p class="day-text">SEP</p>
+               <h1 class="day-number">25</h1>
+               <p class="day-text">SAT</p>
             </div>
            <div class="day" onclick=selected(this)> 
-               <p class="day-text" > SEP </p>
-               <h1 class="day-number"> 26 </h1>
-               <p class="day-text"> SAT </p>
+               <p class="day-text" >SEP</p>
+               <h1 class="day-number">26</h1>
+               <p class="day-text">SAT</p>
             </div>
            <div class="day" onclick=selected(this)> 
-               <p class="day-text" > SEP </p>
-               <h1 class="day-number"> 27 </h1>
-               <p class="day-text"> SAT </p>
+               <p class="day-text" >SEP</p>
+               <h1 class="day-number">27</h1>
+               <p class="day-text">SAT</p>
             </div>
            <div class="day" onclick=selected(this)> 
-               <p class="day-text" > SEP </p>
-               <h1 class="day-number"> 28 </h1>
-               <p class="day-text"> SAT </p>
+               <p class="day-text" >SEP</p>
+               <h1 class="day-number">28</h1>
+               <p class="day-text">SAT</p>
             </div>
            <div class="day" onclick=selected(this)> 
-               <p class="day-text" > SEP </p>
-               <h1 class="day-number"> 29 </h1>
-               <p class="day-text"> SAT </p>
+               <p class="day-text" >SEP</p>
+               <h1 class="day-number">29</h1>
+               <p class="day-text"> SAT</p>
             </div>
            <div class="day" onclick=selected(this)> 
-               <p class="day-text" > SEP </p>
-               <h1 class="day-number"> 30 </h1>
-               <p class="day-text"> SAT </p>
+               <p class="day-text" >SEP</p>
+               <h1 class="day-number">30</h1>
+               <p class="day-text">SAT</p>
             </div>
            <div class="day" onclick=selected(this)> 
-               <p class="day-text" > NOV </p>
-               <h1 class="day-number"> 1 </h1>
-               <p class="day-text"> SAT </p>
+               <p class="day-text" >NOV</p>
+               <h1 class="day-number">1</h1>
+               <p class="day-text">SAT</p>
             </div>
            <div class="day" onclick=selected(this)> 
-               <p class="day-text" > NOV </p>
-               <h1 class="day-number"> 2 </h1>
-               <p class="day-text"> SAT </p>
+               <p class="day-text" >NOV</p>
+               <h1 class="day-number">2</h1>
+               <p class="day-text">SAT</p>
             </div>
            <div class="day" onclick=selected(this)> 
-               <p class="day-text" > NOV </p>
-               <h1 class="day-number"> 3 </h1>
-               <p class="day-text"> SAT </p>
+               <p class="day-text" >NOV</p>
+               <h1 class="day-number">3</h1>
+               <p class="day-text">SAT</p>
             </div>
            <div class="day" onclick=selected(this)> 
-               <p class="day-text"> NOV </p>
-               <h1 class="day-number"> 4 </h1>
-               <p class="day-text"> SAT </p>
+               <p class="day-text">NOV</p>
+               <h1 class="day-number">4</h1>
+               <p class="day-text">SAT</p>
             </div>
            <div class="day" onclick=selected(this)> 
-               <p class="day-text" > NOV </p>
-               <h1 class="day-number"> 5 </h1>
-               <p class="day-text"> SAT </p>
+               <p class="day-text" >NOV</p>
+               <h1 class="day-number">5</h1>
+               <p class="day-text">SAT</p>
             </div> 
         </div>
         <div class="hr"> </div>
         <div id="ticket">
           <form action="#">
-            <select name="ticket-type" id='ticket-type' placeholder='Seat type'>
+            <select name="ticket-type" id='ticket-type' placeholder='Seat type' onchange="changeFunc(value)">
               <option value="" disabled selected>Seat Type </option>
               <option value="premium">Premium(₹300)</option>
               <option value="gold">Gold(₹200)</option>
               <option value="regular">Regular(₹100)</option>
             </select>
-          
+          </form>
+          <div id='tickets-left'>
+            <h4 id='tickets-left-text'>Seats left : <span id='seats'> </span></h4>
+          </div>
           <div id="people">
             <h2 id='many'> How many?</h2>
               <div id="svg-icons">
@@ -124,21 +127,36 @@
     </div>
 </section>
 <script>
+
+    // funntion to get date and touch of the calender
     var divItems = document.getElementsByClassName("day");
-    var btnChanges= document.getElementsByClassName('btn-change');
 
     function selected(item) {
-        this.clear();
-        item.style.backgroundColor = 'black';
+    this.clear();
+    item.style.backgroundColor = 'black'; //sets the bg colour on click
+
+    let month= item.getElementsByClassName('day-text')[0].textContent;
+    let months =['JAN','FEB','MAR','APRIL','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+    for(let i=0;i<months.length;i++){
+        if(month == months[i]){
+            month=i+1;
+        }
     }
-    
+    let day= item.getElementsByClassName('day-number')[0].textContent;
+
+    // final date
+    date='2020'+'-'+month+'-'+day;
+    }
+    //sets the bg colour of unclicked-elements
     function clear() {
         for(var i=0; i < divItems.length; i++) {
             var item = divItems[i];
-            item.style.backgroundColor = 'var(--main--violet_200)';
+            item.style.backgroundColor = 'blue';
         }
     }
 
+
+    var btnChanges= document.getElementsByClassName('btn-change');
     function selected_btn(item) {
         this.clear_btn();
         item.style.backgroundColor = 'var(--main--violet_100)';

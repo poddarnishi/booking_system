@@ -612,6 +612,13 @@ figure {
   cursor: pointer;
 }
 
+#tickets-left{
+  color: white;
+  position: absolute;
+  right: 20%;
+  bottom: -23%;
+}
+
 #people{
   /* background-color: pink; */
   width: 80%;
