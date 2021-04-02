@@ -7,7 +7,7 @@ app=Flask(__name__)
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
-  password="nineten910",  #change the password to 'nineten910' before commits
+  password="Br@keys20",  #change the password to 'nineten910' before commits
   database="BOOKING"
 )
 cursor = mydb.cursor()
@@ -109,6 +109,11 @@ def register():
         msg = 'Please fill out the form!'
     # Show registration form with message (if any)
     return render_template('login.html', msg=msg)
+
+@app.route('/payment')
+def pay():
+    return render_template('payment.html')
+
 @app.route('/pythonlogin/logout',methods=['POST','GET'])
 def logout():
     # Remove session data, this will log the user out
