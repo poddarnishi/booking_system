@@ -7,7 +7,7 @@ app=Flask(__name__)
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
-  password="nineten910",
+  password="Br@keys20",  #change the password to 'nineten910' before commits
   database="BOOKING"
 )
 cursor = mydb.cursor()
@@ -17,12 +17,12 @@ account={'username':"Nishi","Password":"Hello","email":"nishi@gmail.com"}
 @app.route("/filmsy")
 @app.route("/home")
 def index():
-
     return render_template("index.html")
+    
 @app.route("/profile")
 def profile():
     if 'loggedin' in session:
-        cursor.execute("Select * from records where email_id= %s",(session['username'],))
+        cursor.execute("Select * from record where email_id= %s",(session['username'],))
         record=cursor.fetchall()
         return render_template("profile.html",account=session,record=record)
     else:
