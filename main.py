@@ -44,7 +44,7 @@ def book():
             cursor.execute("Select * from movie_details where movie_id=%s",(id,))
             movie=cursor.fetchone()
             id=int(id)
-            return render_template("book.html",img=movie_image[id-100],movie=movie)
+            return render_template("bookings.html",img=movie_image[id-100],movie=movie)
     mini_project.genre_recommendations('1917')
     
     
