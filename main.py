@@ -27,12 +27,13 @@ def profile():
         record=cursor.fetchall()
         movie=[]
         genre=[]
+        l=len(record)
         for i in range(len(record)):
-            cursor.execute("Select movie_name from movie_details where movie_id=%s",(record[i],))
+            cursor.execute("Select movie_name from movie_details where movie_id=%s",(record[i][3],))
             movie.append(cursor.fetchone())
-            cursor.execute("Select genre from movie_details where movie_id=%s",(record[i],))
+            cursor.execute("Select genre from movie_details where movie_id=%s",(record[i][3],))
             genre.append(cursor.fetchone())
-        return render_template("profile.html",account=session,record=record,movie=movie,genre=genre)
+        return render_template("profile.html",account=session,record=record,movie=movie,genre=genre,len=l)
     else:
         return render_template("login.html")
 
@@ -41,20 +42,23 @@ def book():
     if request.method=='POST':
         if 'loggedin' in session:
             if request.form["movie"] == "selected":
-                id=request.form["bt"]
-                date=request.form["date"]
-                cursor.execute("Select * from movie_details where movie_id=%s",(id,))
-                movie=cursor.fetchone()
-                print(date)
-                cursor.execute("Select tickets_remaining from booking where show_date=%s and movie_id=%s and seat_type='Gold'",(date,id))
-                goldtic=cursor.fetchone()
-                cursor.execute("Select tickets_remaining from booking where show_date=%s and movie_id=%s and seat_type='Silver'",(date,id))
-                silvertic=cursor.fetchone()
-                print(silvertic[0])
-                id=int(id)
-                recommend=mini_project.genre_recommendations(movie[1])
-                print(recommend)
-                return render_template("bookings.html",img=movie_image[id-100],movie=movie,goldtic=int(goldtic[0]),silvertic=int(silvertic[0]),recommend=recommend)
+                try:
+                    id=request.form["bt"]
+                    date=request.form["date"]
+                    cursor.execute("Select * from movie_details where movie_id=%s",(id,))
+                    movie=cursor.fetchone()
+                    print(date)
+                    cursor.execute("Select tickets_remaining from booking where show_date=%s and movie_id=%s and seat_type='Gold'",(date,id))
+                    goldtic=cursor.fetchone()
+                    cursor.execute("Select tickets_remaining from booking where show_date=%s and movie_id=%s and seat_type='Silver'",(date,id))
+                    silvertic=cursor.fetchone()
+                    print(silvertic[0])
+                    id=int(id)
+                    recommend=mini_project.genre_recommendations(movie[1])
+                    print(recommend)
+                    return render_template("bookings.html",img=movie_image[id-100],movie=movie,goldtic=int(goldtic[0]),silvertic=int(silvertic[0]),recommend=recommend,date=date)
+                except:
+                    return render_template("index.html")
         else:
             return render_template("login.html")
    
@@ -113,6 +117,34 @@ def register():
         msg = 'Please fill out the form!'
     # Show registration form with message (if any)
     return render_template('login.html', msg=msg)
+
+@app.route('/payment',methods=['GET','POST'])
+def payment():
+    if request.method=='POST':
+        tickettype=request.form['ticket-type']
+        movieint=request.form['animal']
+        booked=request.form["quantity"]
+        dateint=request.form['whatdate']
+        cursor.execute("Select movie_name from movie_details where movie_id=%s",(movieint,))
+        moviename=cursor.fetchone()
+        cursor.execute("Select price from booking where show_date=%s and movie_id=%s and seat_type=%s",(dateint,movieint,tickettype))
+        price=cursor.fetchone()
+        total=int(price[0])*int(booked)
+        cursor.execute("Select tickets_remaining from booking where show_date=%s and movie_id=%s and seat_type=%s",(dateint,movieint,tickettype))
+        left=cursor.fetchone()
+        left=int(int(left[0])-int(booked))
+        email=session['username']
+        cursor.execute("Update booking set tickets_remaining= %s where show_date=%s and movie_id=%s and seat_type=%s",(left,dateint,int(movieint),tickettype))
+        cursor.execute("Select * from record where email_id=%s and movie_id=%s and show_date=%s and seat_type=%s",(email,int(movieint),dateint,tickettype))
+        prevrecord=cursor.fetchone()
+        if prevrecord:
+            booked=int(int(booked)+int(prevrecord[0]))
+            cursor.execute("Update record set tickets_booked=%s where email_id=%s and movie_id=%s and show_date=%s and seat_type=%s",(booked,email,int(movieint),dateint,tickettype))
+        else:
+            cursor.execute('INSERT INTO record VALUES (%s, %s, %s, %s, %s)',(int(booked),tickettype,email,int(movieint),dateint))
+        mydb.commit()
+        return render_template('payment.html',moviename=moviename[0],dateint=dateint,tickettype=tickettype,booked=booked,price=price[0],total=total)
+
 @app.route('/pythonlogin/logout',methods=['POST','GET'])
 def logout():
     # Remove session data, this will log the user out

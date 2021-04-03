@@ -36,13 +36,14 @@
     <tbody>
         <!-- Your rows inside the table HERE: -->
         {% if record %}
-        {% for i in len(record) %}
-
+        {% for i in range(0,len) %}
         <tr>
-                <td>movie[i]</td>
-                <td>genre[i]</td>
-                <td>record[i][0]</td>
-                <td>record[i][4]</td>
+                <td>{{movie[i][0]}}</td>
+                <td>{{genre[i][0]}}</td>
+                <!-- No of seats booked -->
+                <td>{{record[i][0]}}</td> 
+                <!-- Date -->
+                <td>{{record[i][4]}}</td>
             </tr>
         {% endfor %}
         {% endif %}

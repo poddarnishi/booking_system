@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<title>Payment
+    
+</title>
+<style>
+    #payment-svg{
+        display: block;
+        left: 40%;
+        right: 50%;
+        position: absolute;
+        top: 5%;
+        width: 20em;
+    }
+    #payment{
+        background-color: var(--main--violet_200);
+        width: 50vw;
+        height: 70vh;
+        margin: auto;
+        margin-top: 10em;
+        border-radius: 10px;
+    }
+    #payment-form{
+        width: 100%;
+        height: 400px;
+        position: relative;
+        top: 25%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    #payment-title{
+        font-size: 2em;
+    }
+    
+    #payment-inner{
+        width: 300px;
+        height: 400px;
+        /* background-color: red; */
+        display: flex;
+        flex-direction: column;
+        font-size: 2em;
+
+    }
+    #payment-inner input,label{
+        width: 70%;
+        margin-left:20px ;
+        
+    }
+
+    #ticket-inner{
+        font-size: 2em;
+        /* background-color: yellow; */
+        height: 400px;
+        width: 500px;
+    }
+    #ticket-inner p{
+        margin-left: 10px;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+    <img id='payment-svg' src="static/resources/payment.svg">
+    <section id='payment'>
+        <id id='payment-form'> 
+            
+                <div id='payment-inner'>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Number </label>
+                          <input type="number" class="form-control" id="card_no" aria-describedby="emailHelp" placeholder="Enter Card No">
+                        </div>
+                        <br> 
+                        <div class="form-group">
+                          <label for="exampleInputPassword1">CCV</label>
+                          <input type="password" class="form-control" id="ccv" placeholder="Enter CCV">
+                        </div>
+                </div>
+                <div id='ticket-inner'>
+                    <p> Movie Name: {{moviename}} </p>
+                    <p> Show date: {{dateint}} </p>
+                    <p> Type of ticket: {{tickettype}} </p>
+                    <p>Price per ticket: {{price}}</p>
+                    <p> Tickets: {{booked}}</p>
+                    <br> 
+                    <form action="{{url_for('index')}}">
+                <button type="submit" style="border: none; padding: 5px 20px;"> Pay {{total}} </button> </form>
+                </div>
+        </div>
+       
+    </section>
+
+<!-- movie name,showdate,seat type,number of bought -->
+{% endblock %}
