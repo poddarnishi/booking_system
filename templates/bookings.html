@@ -53,12 +53,13 @@
     </form>
     
     </div>
-    <div id="recommends" style="align-items: center; justify-content: center;">
-    <h4> You might also like: </h4>
-    <ul>
-      <li>{{recommend[0]}}</li> <li>{{recommend[1]}}</li> <li>{{recommend[2]}}</li> <li>{{recommend[3]}}</li> <li>{{recommend[4]}}</li>
-    </ul>
-  </div>
+    <div id="recommends" style="text-align: center; font-size: 1.5em;">
+    <p><h4 style="font-size: 2em;"> You might also like: </h4>
+     {{recommend[0]}}, {{recommend[1]}}, {{recommend[2]}}, {{recommend[3]}}, {{recommend[4]}}
+    </p>
+    </div>
+    <br>
+    <br>
 </section>
 
 <script>
@@ -66,7 +67,7 @@
     function changeFunc(value) {
             if(value=='gold'){
                     document.getElementById('seats').innerHTML={{ goldtic }}; //seats left
-                    gold={{goldtic}}
+                    gold={{ goldtic }};
                     document.getElementById('quantitytic').setAttribute('max',gold);
             }
             else{

@@ -17,7 +17,7 @@
               <div class="carousel-caption d-none d-md-block" id='joker'>
                 <h1 id='joker-title'> JOKER </h1>
                 <p id='joker-tagline'> PUT ON A HAPPY FACE </p>
-                <button type="button" class="btn btn-outline-danger" id='joker-btn'><a href="https://www.youtube.com/watch?v=zAGVQLHvwOY">Trailer</a></button>
+                <button type="button" class="btn btn-outline-danger" id='joker-btn'><a href="https://www.youtube.com/watch?v=zAGVQLHvwOY" class="trailer-link" style="color: red;">Trailer</a></button>
               </div>
             </div>
           </div>
@@ -28,7 +28,7 @@
               <div class="carousel-caption d-none d-md-block" id='br'>
                 <h1 id='br-title'> BOHEMIAN RHAPSODY </h1>
                 <p id='br-tagline'> FEARLESS LIVES FOREVER </p>
-                <button type="button" class="btn btn-outline-warning" id='br-btn'><a href="https://www.youtube.com/watch?v=mP0VHJYFOAU">Trailer</a></button>
+                <button type="button" class="btn btn-outline-warning" id='br-btn'><a href="https://www.youtube.com/watch?v=mP0VHJYFOAU" class="trailer-link" style=" color :#beb428;">Trailer</a></button>
               </div>
             </div>
           </div>
@@ -38,7 +38,7 @@
               <div class="carousel-caption d-none d-md-block" id='avengers'>
                 <h1 id='avengers-title'> END GAME</h1>
                 <p id='avengers-tagline'> AVENGE THE FALLEN </p>
-                <button type="button" class="btn btn-outline-info" id='avengers-btn'><a href="https://www.youtube.com/watch?v=TcMBFSGVi1c">Trailer</a></button>
+                <button type="button" class="btn btn-outline-info" id='avengers-btn'><a href="https://www.youtube.com/watch?v=TcMBFSGVi1c" class="trailer-link" style="color :rgb(47, 173, 211);">Trailer</a></button>
               </div>
             </div>
           </div>
@@ -117,9 +117,32 @@
            <h1 class="day-number">19 </h1>
            <p class="day-text"> SUN </p>
         </div> 
+       <div class="day" onclick=selected(this) style="opacity:20%"> 
+           <p class="day-text" >APR</p>
+           <h1 class="day-number">20 </h1>
+           <p class="day-text"> MON </p>
+        </div> 
+       <div class="day" onclick=selected(this) style="opacity:20%"> 
+           <p class="day-text" >APR</p>
+           <h1 class="day-number">21 </h1>
+           <p class="day-text"> TUE </p>
+        </div> 
+       <div class="day" onclick=selected(this) style="opacity:20%"> 
+           <p class="day-text" >APR</p>
+           <h1 class="day-number">22 </h1>
+           <p class="day-text"> WED </p>
+        </div> 
+       <div class="day" onclick=selected(this) style="opacity:20%"> 
+           <p class="day-text" >APR</p>
+           <h1 class="day-number">23</h1>
+           <p class="day-text"> THU </p>
+        </div> 
     </div>
+    <div class="hr"> </div>
   
-
+    <br>
+    <br>
+    <br>
   <!-- Top movies section -->
     <input type="hidden" name="movie" value="selected">
     <input type="hidden" id="datejs" name="date">
@@ -130,7 +153,7 @@
   
         <div class="col-md-4 single_card">
           <div class="card" style="width: 18rem;">
-            <button type="submit" name="bt" value=100>
+            <button type="submit" name="bt" value=100 style="background-color: black; border: none;">
 
             <img src="static/resources/endgame_rect.jpg" class="card-img-top" alt="..."></button>
           </div>
@@ -138,7 +161,7 @@
   
         <div class="col-md-4 single_card">
           <div class="card" style="width: 18rem;">
-            <button type="submit" name="bt" value=101>
+            <button type="submit" name="bt" value=101 style="background-color: black; border: none;">
             <img src="static/resources/br_rect.jpg" class="card-img-top" alt="..."></button>
           </div>
         </div>
@@ -146,28 +169,28 @@
   
         <div class="col-md-4 single_card">
           <div class="card" style="width: 18rem;">
-            <button type="submit" name="bt" value=102>
+            <button type="submit" name="bt" value=102 style="background-color: black; border: none;">
             <img src="static/resources/1917_rect.jpg" class="card-img-top" alt="..."></button>
           </div>
         </div>
       
         <div class="col-md-4 single_card">
           <div class="card" style="width: 18rem;">
-            <button type="submit" name="bt" value=103>
+            <button type="submit" name="bt" value=103 style="background-color: black; border: none;">
             <img src="static/resources/jojo_rect.jpg" class="card-img-top" alt="..."></button>
           </div>
         </div>
   
         <div class="col-md-4 single_card">
           <div class="card" style="width: 18rem;">
-            <button type="submit" name="bt" value=104>
+            <button type="submit" name="bt" value=104 style="background-color: black; border: none;">
             <img src="static/resources/joker_rect.jpg" class="card-img-top" alt="..."></button>
           </div>
         </div>
   
         <div class="col-md-4 single_card">
           <div class="card" style="width: 18rem;">
-            <button type="submit" name="bt" value=105>
+            <button type="submit" name="bt" value=105 style="background-color: black; border: none;">
             <img src="static/resources/fvf_rect.jpg" class="card-img-top" alt="..."></button>
           </div>
         </div>
@@ -182,7 +205,7 @@
 
 function selected(item) {
 this.clear();
-item.style.backgroundColor = 'black'; //sets the bg colour on click
+item.style.backgroundColor = 'var(--main--violet_100)'; //sets the bg colour on click
 
 let month= item.getElementsByClassName('day-text')[0].textContent;
 let months =['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
