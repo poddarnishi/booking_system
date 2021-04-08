@@ -7,7 +7,7 @@ app=Flask(__name__)
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
-  password="Br@keys20",  #change the password to 'nineten910' before commits
+  password="Br@keys20",  
   database="BOOKING"
 )
 cursor = mydb.cursor()
