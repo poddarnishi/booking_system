@@ -56,13 +56,12 @@ def book():
                     id=int(id)
                     recommend=mini_project.genre_recommendations(movie[1])
                     print(recommend)
-                    return render_template("bookings.html",img=movie_image[id-100],movie=movie,goldtic=int(goldtic[0]),silvertic=int(silvertic[0]),recommend=recommend,date=date)
+                    return render_template("bookings.html",img=movie_image[id-100],movie=movie,
+                    goldtic=int(goldtic[0]),silvertic=int(silvertic[0]),recommend=recommend,date=date)
                 except:
                     return render_template("index.html")
         else:
-            return render_template("login.html")
-   
-    
+            return render_template("login.html")   
     
 @app.route("/login",methods=['GET','POST'])
 def login():
