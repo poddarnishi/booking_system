@@ -42,8 +42,8 @@
                     <input type="hidden" name="bookingform" value="yes">
                     <input type="hidden" name="whatdate" value={{ date }} >
                     <input type="hidden" name="animal" value={{movie[0]}}>                  
-                    <label for="quantity">Select tickets: </label>
-                    <input type="number" id="quantitytic" name="quantity" min="1" >
+                    <label for="quantity" style="font-size: 1.3em;"> Select tickets </label>
+                    <input type="number" id="quantitytic" name="quantity" min="1" style="width: 70px;" >
                 </div>
           </div>
           <div id='payment-btn'>
@@ -53,12 +53,13 @@
     </form>
     
     </div>
-    <div id="recommends" style="align-items: center; justify-content: center;">
-    <h4> You might also like: </h4>
-    <ul>
-      <li>{{recommend[0]}}</li> <li>{{recommend[1]}}</li> <li>{{recommend[2]}}</li> <li>{{recommend[3]}}</li> <li>{{recommend[4]}}</li>
-    </ul>
-  </div>
+    <div id="recommends" style="text-align: center; font-size: 1.5em;">
+    <p><h4 style="font-size: 2em;"> You might also like: </h4>
+     {{recommend[0]}}, {{recommend[1]}}, {{recommend[2]}}, {{recommend[3]}}, {{recommend[4]}}
+    </p>
+    </div>
+    <br>
+    <br>
 </section>
 
 <script>
@@ -66,7 +67,7 @@
     function changeFunc(value) {
             if(value=='gold'){
                     document.getElementById('seats').innerHTML={{ goldtic }}; //seats left
-                    gold={{goldtic}}
+                    gold={{ goldtic }};
                     document.getElementById('quantitytic').setAttribute('max',gold);
             }
             else{
@@ -78,35 +79,6 @@
 
 
     </script>
-<!-- <script>
-    var divItems = document.getElementsByClassName("day");
-    var btnChanges= document.getElementsByClassName('btn-change');
-
-    function selected(item) {
-        this.clear();
-        item.style.backgroundColor = 'yellow';
-    }
-    
-    function clear() {
-        for(var i=0; i < divItems.length; i++) {
-            var item = divItems[i];
-            item.style.backgroundColor = 'var(--main--violet_200)';
-        }
-    }
-
-    function selected_btn(item) {
-        this.clear_btn();
-        item.style.backgroundColor = 'var(--main--violet_100)';
-    }
-
-    function clear_btn() {
-        for(var i=0; i < btnChanges.length; i++) {
-            var item = btnChanges[i];
-            item.style.backgroundColor = 'var(--main--violet_200)';
-        }
-    }
-
-    </script> -->
 
     <!-- Bootstrap script -->
     <script src="../static/js/bootstrap.bundle.js"> </script>

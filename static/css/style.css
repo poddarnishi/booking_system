@@ -81,8 +81,8 @@ nav .navbar-nav li a:hover{
   letter-spacing: 2px;
 }
 
-#joker-btn:hover{
-  color :white;
+#joker-btn a:hover{
+  color :white !important;
 
 }
 
@@ -123,8 +123,8 @@ nav .navbar-nav li a:hover{
   bottom: 1rem;
   letter-spacing: 2px;
 }
-#br-btn:hover{
-  color :white;
+#br-btn a:hover{
+  color :white !important;
 
 }
 
@@ -163,8 +163,13 @@ nav .navbar-nav li a:hover{
   letter-spacing: 2px;
 }
 
-#avengers-btn:hover{
-  color :white;
+#avengers-btn a:hover{
+  color :white !important;
+}
+
+.trailer-link{
+  text-decoration: none;
+  color: none;
 }
 
 .container{
@@ -213,9 +218,9 @@ nav .navbar-nav li a:hover{
   border: none;
 }
 
-.single_card img{
+/* .single_card img{
   box-shadow: 13px 15px rgb(2, 2, 2,0.3);
-}
+} */
 
 .single_card:hover{
   transform: scale(1.05);
@@ -571,7 +576,7 @@ figure {
 #date .day{
   
   width: 100px;
-  /* background-color: yellow; */
+  background-color: var(--main--violet_200);
   height: auto;
   display: flex;
   flex-direction: column;
@@ -589,7 +594,7 @@ figure {
 }
 
 #date .day:hover{
-  background-color: yellow;
+  background-color: var(--main--violet_100);
   cursor: pointer;
 }
 

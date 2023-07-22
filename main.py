@@ -7,7 +7,7 @@ app=Flask(__name__)
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
-  password="nineten910",  #change the password to 'nineten910' before commits
+  password="Br@keys20",  
   database="BOOKING"
 )
 cursor = mydb.cursor()
@@ -47,17 +47,14 @@ def book():
                     date=request.form["date"]
                     cursor.execute("Select * from movie_details where movie_id=%s",(id,))
                     movie=cursor.fetchone()
-                    print(date)
                     cursor.execute("Select tickets_remaining from booking where show_date=%s and movie_id=%s and seat_type='Gold'",(date,id))
                     goldtic=cursor.fetchone()
                     cursor.execute("Select tickets_remaining from booking where show_date=%s and movie_id=%s and seat_type='Silver'",(date,id))
                     silvertic=cursor.fetchone()
-                    print(silvertic[0])
                     id=int(id)
                     recommend=mini_project.genre_recommendations(movie[1])
                     print(recommend)
-                    return render_template("bookings.html",img=movie_image[id-100],movie=movie,
-                    goldtic=int(goldtic[0]),silvertic=int(silvertic[0]),recommend=recommend,date=date)
+                    return render_template("bookings.html",img=movie_image[id-100],movie=movie,goldtic=int(goldtic[0]),silvertic=int(silvertic[0]),recommend=recommend,date=date)
                 except:
                     return render_template("index.html")
         else:
@@ -71,7 +68,7 @@ def login():
         password = request.form['password']
         cursor.execute('SELECT * FROM customer WHERE email_id = %s AND password = %s', (username, password))
         account = cursor.fetchone()
-        if account:
+        if account:         #session is inbuilt
             session['loggedin'] = True
             session['name'] = account[1]
             session['username'] = account[0]
@@ -91,7 +88,7 @@ def register():
         name = request.form['name']
         age=request.form['age']
         phone=request.form['phone']
-        cursor.execute('SELECT * FROM customer WHERE email_id = %s', (username,))
+        cursor.execute('SELECT * FROM customer WHERE email_id = %s', (username,)) #should be a tuple
         account = cursor.fetchone()
         # If account exists show error and validation checks
         if account:
